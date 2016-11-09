@@ -8,14 +8,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script type="text/javascript">
 	var app = angular.module('myApp',[]);
-	app.controller("ProductController",function($scope,$http){
+	app.controller("SupplierController",function($scope,$http){
 		$scope.getdata = function(){
 			$http({
 				method : 'GET',
-				url : 'viewproductlist'
+				url : 'viewsupplierlist'
 			}).success(function(data, status ,headers, config){
 				$scope.result = data;
-				alert(" success");
+				alert("success");
 			}).error(function(data, status, headers, config){
 				alert("error");
 			});
@@ -26,31 +26,23 @@
 </script>
 </head>
 <body>
-<div ng-app="myApp" ng-controller="ProductController" ng-init="getdata()">
+<div ng-app="myApp" ng-controller="SupplierController" ng-init="getdata()">
 <table>
 <tr>
-<th>id</th>
-<th>pn</th>
-<th>description</th>
-<th>quantity</th>
-<th>price</th>
-<th>cid</th>
-<th>sid</th>
-<th>liters</th>
-<th>weight</th>
+<th>supplier_id</th>
+<th>sn</th>
+<th>email_id</th>
+<th>mn</th>
+<th>sa</th>
 </tr>
 <tr ng-repeat="items in result">
-<th>{{items.id}}</th>
-<th>{{items.pn}}</th>
-<th>{{items.description}}</th>
-<th>{{items.quantity}}</th>
-<th>{{items.price}}</th>
-<th>{{items.cid}}</th>
-<th>{{items.sid}}</th>
-<th>{{items.liters}}</th>
-<th>{{items.weight}}</th>
-<th><a href="getproduct/{{items.id}}">edit</a></th>
-<th><a href="deleteproduct/{{items.id}}">delete</a></th>
+<th>{{items.supplier_id}}</th>
+<th>{{items.sn}}</th>
+<th>{{items.email_id}}</th>
+<th>{{items.mn}}</th>
+<th>{{items.sa}}</th>
+<th><a href="getsupplier/{{items.supplier_id}}">edit</a></th>
+<th><a href="deletesupplier/{{items.supplier_id}}">delete</a></th>
 </tr>
 </table>
 

@@ -3,13 +3,16 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns:security="http://www.springframework.org/schema/security"
 	xmlns:context="http://www.springframework.org/schema/context"
+	 xmlns:webflow-config="http://www.springframework.org/schema/webflow-config"
 	xsi:schemaLocation="
 	http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 	http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd
 	http://www.springframework.org/schema/security 
-	http://www.springframework.org/schema/security/spring-security-4.1.xsd">
+	http://www.springframework.org/schema/security/spring-security-4.1.xsd
+	http://www.springframework.org/schema/webflow-config 
+       http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd">
 
 	<context:component-scan base-package="com.niit.*" />
 
@@ -23,7 +26,7 @@
 			authentication-failure-url="/getlogin?error"
 			username-parameter="user_name"
 			password-parameter="password" />
-		<security:logout logout-success-url="/getlogin?logout" />
+		<security:logout logout-success-url="/getlogin?logout" logout-url="/j_spring_security_logout"/>
 		
 		<security:csrf disabled="true" />
 	</security:http>
@@ -35,4 +38,19 @@
 			users-by-username-query="SELECT user_name, password,enabled FROM UserAccount WHERE user_name = ?" />
 		</security:authentication-provider>
 	</security:authentication-manager>
+	
+	<webflow-config:flow-executor id="flowExecutor" flow-registry="flowRegistry" />
+    
+    <webflow-config:flow-registry id="flowRegistry" base-path="/WEB-INF/Flow">
+        <webflow-config:flow-location path="/checkout/checkout-flow.xml" id="checkout" />
+    </webflow-config:flow-registry>
+
+    <bean id="flowHandlerMapping" class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+        <property name="flowRegistry" ref="flowRegistry" />
+    </bean>
+
+    <bean id="flowHandlerAdapter" class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
+        <property name="flowExecutor" ref="flowExecutor" />
+    </bean>
+	
 </beans>

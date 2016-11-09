@@ -30,13 +30,13 @@
 <table>
 <tr>
 <th>category_id</th>
-<th>category_name</th>
-<th>category_description</th>
+<th>cn</th>
+<th>cd</th>
 </tr>
 <tr ng-repeat="items in result">
 <th>{{items.category_id}}</th>
-<th>{{items.category_name}}</th>
-<th>{{items.category_description}}</th>
+<th>{{items.cn}}</th>
+<th>{{items.cd}}</th>
 
 </tr>
 </table>

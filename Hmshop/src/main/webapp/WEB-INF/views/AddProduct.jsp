@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -37,7 +38,7 @@ body {
 </head>
 <body>
 	<div class="container">
-		<form class="form-horizontal " role="form" action="newProduct" method="post">
+		<form class="form-horizontal " enctype="multipart/form-data" role="form" action="newProduct" method="post">
 		
 			<h2>Add Product form</h2>
 			
@@ -45,9 +46,13 @@ body {
 				<label for="product_name" class="col-sm-3 control-label">product_name</label>
 				<div class="col-sm-9">
 					<input type="text" id="product_name" name="pn"  
-						class="form-control">  
+						class="form-control">
 				</div>
 			</div>
+		
+			
+		
+		
 			<div class="form-group">
 				<label for="description" class="col-sm-3 control-label">description</label>
 				<div class="col-sm-9">
@@ -63,20 +68,39 @@ body {
 				</div>
 			</div>
 			
-			
 			<div class="form-group">
-				<label for="color" class="col-sm-3 control-label">category_id</label>
+				<label for="quantity" class="col-sm-3 control-label">price</label>
 				<div class="col-sm-9">
-					<input type="text" id="category_id" name="cid"
-						 class="form-control" >
+					<input type="text" id="price" name="price" 
+						class="form-control"> 
 				</div>
 			</div>
 			
 			<div class="form-group">
-				<label for="category_id" class="col-sm-3 control-label">supplier_id</label>
+				<label for="category_name" class="col-sm-3 control-label">categoryname</label>
 				<div class="col-sm-9">
-					<input type="text" id="supplier_id" name="sid"
-						 class="form-control" >
+					<select style="width: 50%;" class="form-control" name="category_name">
+			
+			<option>Select Category</option>
+			<c:forEach items="${categoryList}" var="category">					
+			<option value="${category.cn}">${category.cn}</option>			
+			</c:forEach>
+			
+			</select>	  
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="sn" class="col-sm-3 control-label">sn</label>
+				<div class="col-sm-9">
+					<select style="width: 50%;" class="form-control" name="sn">
+			
+			<option>Select Supplier</option>
+			<c:forEach items="${supplierList}" var="supplier">					
+			<option value="${supplier.sn}">${supplier.sn}</option>			
+			</c:forEach>
+			
+			</select>	
 				</div>
 			</div>
 			
@@ -99,11 +123,18 @@ body {
 				</div>
 			</div>
 			
+			<div class="form-group">
+				<label for="file" class="col-sm-3 control-label">File to upload</label>
+				<div class="col-sm-9">
+					<input type="file" id="file" name="file" 
+						class="form-control">
+
+				</div>
+			</div>
 			
- 
 			<div class="form-group">
 				<div class="col-sm-9 col-sm-offset-3">
-					<input type="submit" class="btn btn-primary btn-block">ADD</button>
+					<input type="submit" class="btn btn-info btn-block">ADD</button>
 				</div>
 			</div>
 			
