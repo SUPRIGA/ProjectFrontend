@@ -19,13 +19,13 @@ public class Supplier {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int supplier_id; 
 	 @Column
-	private String supplier_name;
+	private String sn;
 	 @Column
 	private String email_id;
 	 @Column
-	private int mobile_number;
+	private int mn;
 	 @Column
-	private String supplier_address;
+	private String sa;
 
 
 	public int getSupplier_Id() {
@@ -34,31 +34,33 @@ public class Supplier {
 	public void setSupplier_Id(int supplier_id) {
 	 this.supplier_id = supplier_id;
 	}
-	public String getSupplier_Name() {
-	 return supplier_name;
-	}
-	public void setSupplier_Name(String supplier_name) {
-	 this.supplier_name = supplier_name;
-	}
+	
 	public String getEmail_id() {
 	 return email_id;
 	}
 	public void setEmail_id(String email_id) {
 	 this.email_id = email_id;
 	}
+	public String getSn() {
+		return sn;
+	}
+	public void setSn(String sn) {
+		this.sn = sn;
+	}
+	public int getMn() {
+		return mn;
+	}
+	public void setMn(int mn) {
+		this.mn = mn;
+	}
+	public String getSa() {
+		return sa;
+	}
+	public void setSa(String sa) {
+		this.sa = sa;
+	}
 	
-	public int getMobile_Number() {
-		 return mobile_number;
-	}
-	public void setMobile_Number(int mobile_number) {
-	 this.mobile_number = mobile_number;
-	}
-	public String getSupplierAddress() {
-	 return supplier_address;
-	}
-	public void setSupplier_Address(String supplier_address) {
-	 this.supplier_address = supplier_address;
-	}
+	
 
 
 }

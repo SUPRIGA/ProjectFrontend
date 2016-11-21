@@ -13,8 +13,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class Product {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private int product_id;
+	@Column(name="id")
+	@GeneratedValue
+		private int id;
 	
 	  @Column
 		private String pn;
@@ -25,23 +26,23 @@ public class Product {
 	  @Column
 		private int price ; 
 	  @Column
-		private int cid;
+		private String category_name;
 	  @Column
-		private int sid;
+		private String sn;
 	 
 	  @Column
 		private int liters;
 	  @Column
 		private int weight ; 
 
-		public int getProduct_Id() {
-		  return product_id;
-		}
-		public void setProduct_Id(int product_id) {
-			this.product_id = product_id;
-		}
+	
 		
-		
+		public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 		public String getDescription() {
 		  return description;
 		}
@@ -68,17 +69,18 @@ public class Product {
 		public void setPn(String pn) {
 			this.pn = pn;
 		}
-		public int getCid() {
-			return cid;
+		
+		public String getCategory_name() {
+			return category_name;
 		}
-		public void setCid(int cid) {
-			this.cid = cid;
+		public void setCategory_name(String category_name) {
+			this.category_name = category_name;
 		}
-		public int getSid() {
-			return sid;
+		public String getSn() {
+			return sn;
 		}
-		public void setSid(int sid) {
-			this.sid = sid;
+		public void setSn(String sn) {
+			this.sn = sn;
 		}
 		public int getLiters() {
 		  return liters;

@@ -17,32 +17,34 @@ public class Category {
     @Id
     @Column
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	   private int category_id;
+	   private int cid;
     
     @Column
-	   private String category_name; 
+	   private String cn; 
     @Column
-	   private String category_description; 
+	   private String cd; 
 
 	   
-    public int getCategory_Id() {
-	     return category_id;
-    }
-	public void setCategory_Id(int category_id) {
-		 this.category_id = category_id;
+  
+	public int getCid() {
+		return cid;
 	}
-    public String getCategory_Name() {
-        return category_name;
-    }
-    public void setCategory_Name(String category_name) {
-	    this.category_name = category_name;
-    }
-    public String getCategory_Description() {
-	     return category_description ;
+	public void setCid(int cid) {
+		this.cid = cid;
 	}
-	public void setCategory_Description(String category_description) {
-		 this.category_description = category_description;
+	public String getCn() {
+		return cn;
 	}
+	public void setCn(String cn) {
+		this.cn = cn;
+	}
+	public String getCd() {
+		return cd;
+	}
+	public void setCd(String cd) {
+		this.cd = cd;
+	}
+   
 }
 
 

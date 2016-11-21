@@ -41,6 +41,7 @@ public class UserAccountTest {
 	
    useraccountDAO.insertUserAccount(userAccount);
 	
+	
 
 	ProductDAO productDAO=(ProductDAO) context.getBean("ProductDAO");
 	Product product= (Product) context.getBean("product");
@@ -48,10 +49,10 @@ public class UserAccountTest {
 	product.setPn("Washing Machine");
 	product.setDescription("Frontload,Topload");
 	product.setQuantity(6);
-	product.setCid( 1);
+	//product.setC( 1);
 	product.setPrice(2000);
 	
-	product.setSid( 1);
+	//product.setSid( 1);
 	product.setLiters(5);
 	product.setWeight(35);
 
@@ -62,8 +63,8 @@ public class UserAccountTest {
 	Category category= (Category) context.getBean("category");
   
 	
-	category .setCategory_Name("Large Appliances");
-	 category.setCategory_Description("Airconditioners,WashingMachine,Refrigirators");
+	category .setCn("Large Appliances");
+	 category.setCd("Airconditioners,WashingMachine,Refrigirators");
 	 
 	  categoryDAO.insertCategory(category);
 	  
@@ -73,10 +74,10 @@ SupplierDAO supplierDAO=(SupplierDAO) context.getBean("SupplierDAO");
 Supplier supplier= (Supplier) context.getBean("supplier");
 
 
-supplier.setSupplier_Name("Vivek");
+supplier.setSn("Vivek");
 supplier.setEmail_id("vivek1anandan@gmail.com");
-supplier.setMobile_Number(98654358);
-supplier.setSupplier_Address("gandhimanagar,coimbatore");
+supplier.setMn(98654358);
+supplier.setSa("gandhimanagar,coimbatore");
 
 supplierDAO.insertSupplier(supplier);
 	  
@@ -84,10 +85,11 @@ supplierDAO.insertSupplier(supplier);
 CartDAO cartDAO=(CartDAO) context.getBean("CartDAO");
 Cart cart= (Cart) context.getBean("cart");
 
-cart.setUser_Id(1);
-cart.setProduct_Id(1);
+cart.setPn("washingmachine");
+cart.setId(1);
 cart.setQuantity(5);
 cart.setPrice(400);
+cart.setUser_name("aravind");
 
 cartDAO.insertCart(cart);
 
@@ -95,7 +97,7 @@ ShippingAddressDAO shippingaddressDAO=(ShippingAddressDAO) context.getBean("Ship
 ShippingAddress shippingAddress= (ShippingAddress) context.getBean("shippingAddress");
 
 
-shippingAddress.setProduct_Id(1);
+shippingAddress.setId(1);
 shippingAddress.setUser_Id(1);
 shippingAddress.setMobile_Number(5);
 shippingAddress.setAddress("gandhimanagar");
@@ -116,6 +118,7 @@ Role role= (Role) context.getBean("role");
      userAccount.setRole(role);
      role.setUseraccount(userAccount);
     // roleDAO.insertRole(role);
+     
      
      
      CardDAO cardDAO=(CardDAO) context.getBean("CardDAO");

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.homeshop.model.Role;
+import com.niit.homeshop.model.UserAccount;
 
 
 
@@ -36,8 +37,9 @@ public class RoleDAOImpl implements RoleDAO {
 	}
 
 	@Transactional
-	public Role getRole(int role_id) {
-		return(Role)sessionFactory.getCurrentSession().get(Role.class, role_id);
+	public Role getRole(String user_name) {
+		 return(Role)sessionFactory.getCurrentSession().createQuery("from Role where user_name='"+user_name +"'").setMaxResults(1).uniqueResult();
+      
 		
 	}
 

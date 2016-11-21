@@ -9,9 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.homeshop.model.Cart;
 
-
-
-
 @Repository("CartDAO")
 public class CartDAOImpl implements CartDAO {
 	
@@ -35,12 +32,13 @@ public class CartDAOImpl implements CartDAO {
 	}
 
 	@Transactional
-	public Cart getCart(int cart_id) {
-		return(Cart)sessionFactory.getCurrentSession().get(Cart.class, cart_id);
+	public List<Cart> getCart(String user_name) {
+		return sessionFactory.getCurrentSession().createQuery("from Cart where user_name='"+user_name+"'").list();
 	}
 
 	@Transactional
 	public void insertCart(Cart cart) {
+	
 		sessionFactory.getCurrentSession().saveOrUpdate(cart);
 
 	}
@@ -54,7 +52,7 @@ public class CartDAOImpl implements CartDAO {
 	@Transactional
 	public void deleteCart(int id) {
 		Cart deleteCart=new Cart();
-		  deleteCart.setCart_Id(id);
+		  deleteCart.setCart_id(id);
 		  sessionFactory.getCurrentSession().delete(deleteCart);
 
 	}

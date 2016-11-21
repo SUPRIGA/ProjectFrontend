@@ -9,7 +9,7 @@ import com.niit.homeshop.model.Role;
 public interface RoleDAO {
 	
 	 public List<Role> getAllRole();
-	   public  Role getRole(int role_id);
+	   public  Role getRole(String user_name);
 	   public void insertRole(Role role);
 	   public void updateRole(Role role);
 	   public void deleteRole(int id);

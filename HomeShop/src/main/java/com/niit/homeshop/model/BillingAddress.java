@@ -10,53 +10,52 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name="Cart")
+@Table(name = "BillingAddress")
 @Component
-public class Cart {
+public class BillingAddress {
+	
 	@Id
 	@Column
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
-	
-private int cart_id;
+		private int billing_id;
 	@Column
-private String pn;
+	   private int user_id;
 	@Column
-	private String user_name;
-	
-@Column
-private int id;
+	   private String user_name;
 	@Column
-private int quantity;
+	   private String pn;
 	@Column
-private int price;
-	
-	
-	
-	
+	    private int quantity;
+	@Column
+	   private int price;
+	@Column
+	   private String address;
+	   
+	   
+	public int getBilling_id() {
+		return billing_id;
+	}
+	public void setBilling_id(int billing_id) {
+		this.billing_id = billing_id;
+	}
+	public int getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
 	public String getUser_name() {
 		return user_name;
 	}
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
 	}
-	public int getCart_id() {
-		return cart_id;
-	}
-	public void setCart_id(int cart_id) {
-		this.cart_id = cart_id;
-	}
 	public String getPn() {
 		return pn;
 	}
 	public void setPn(String pn) {
 		this.pn = pn;
-	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
 	}
 	public int getQuantity() {
 		return quantity;
@@ -70,6 +69,12 @@ private int price;
 	public void setPrice(int price) {
 		this.price = price;
 	}
-
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
 	
+
 }
