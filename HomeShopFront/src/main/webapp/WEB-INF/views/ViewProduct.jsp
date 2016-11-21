@@ -15,7 +15,7 @@
 				url : 'viewproductlist'
 			}).success(function(data, status ,headers, config){
 				$scope.result = data;
-				alert("success");
+				alert(" success");
 			}).error(function(data, status, headers, config){
 				alert("error");
 			});
@@ -29,27 +29,28 @@
 <div ng-app="myApp" ng-controller="ProductController" ng-init="getdata()">
 <table>
 <tr>
-<th>product_id</th>
-<th>product_name</th>
+<th>id</th>
+<th>pn</th>
 <th>description</th>
 <th>quantity</th>
 <th>price</th>
-<th>category_id</th>
-<th>supplier_id</th>
+<th>cid</th>
+<th>sid</th>
 <th>liters</th>
 <th>weight</th>
 </tr>
 <tr ng-repeat="items in result">
-<th>{{items.product_id}}</th>
-<th>{{items.product_name}}</th>
+<th>{{items.id}}</th>
+<th>{{items.pn}}</th>
 <th>{{items.description}}</th>
 <th>{{items.quantity}}</th>
 <th>{{items.price}}</th>
-<th>{{items.category_id}}</th>
+<th>{{items.cid}}</th>
+<th>{{items.sid}}</th>
 <th>{{items.liters}}</th>
 <th>{{items.weight}}</th>
-
-
+<th><a href="editproduct/{{items.id}}">edit</a></th>
+<th><a href="deleteproduct/{{items.id}}">delete</a></th>
 </tr>
 </table>
 

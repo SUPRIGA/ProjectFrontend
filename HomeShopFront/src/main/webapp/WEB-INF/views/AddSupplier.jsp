@@ -13,7 +13,7 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
 	
-<title>ADD Category</title>
+<title>ADD SUPPLIER</title>
 
 <style type="text/css">
 body {
@@ -37,24 +37,41 @@ body {
 </head>
 <body>
 	<div class="container">
-		<form class="form-horizontal " role="form" action="newCategory" method="post">
-			<h2>Add Category form</h2>
+		<form class="form-horizontal " role="form" action="newSupplier">
+			<h2>Add Supplier form</h2>
 			<div class="form-group">
-				<label for="category_name" class="col-sm-3 control-label">category_name</label>
+				<label for="supplier_name" class="col-sm-3 control-label">SupplierName</label>
 				<div class="col-sm-9">
-					<input type="text" id="cn" name="cn"  
+					<input type="text" id="supplier_name" name="sn"  
 						class="form-control" autofocus>  
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="category_description" class="col-sm-3 control-label">category_description</label>
+				<label for="email_id" class="col-sm-3 control-label">EmailAddress</label>
 				<div class="col-sm-9">
-					<input type="text" id="cd" name="cd" 
+					<input type="text" id="email_id" name="email_id" 
 						class="form-control"> 
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="supplier_address" class="col-sm-3 control-label">Address</label>
+				<div class="col-sm-9">
+					<input type="text" id="supplier_address" name="sa" 
+						class="form-control"> 
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="mobile_number" class="col-sm-3 control-label">MobileNumber</label>
+				<div class="col-sm-9">
+					<input type="text" id="mobile_number" name="mn"
+						 class="form-control" >
 				</div>
 			</div>
 			
 			
+			<!-- /.form-group -->
+
+		
 			<div class="form-group">
 				<div class="col-sm-9 col-sm-offset-3">
 					<button type="submit" class="btn btn-info btn-block">ADD</button>
